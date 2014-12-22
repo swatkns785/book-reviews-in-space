@@ -7,11 +7,9 @@ I want to delete my account
 So that my information is no longer retained by the app
 
 Acceptance Criteria
-[ ] User sees form with existing information.
-[ ] User clicks "delete" and is automatically signed out.
-[ ] Upon deleting account, user sees message saying account succesfully deleted.
-[ ] User tries to login with prior credentials and is told account no longer exists.
-[ ] User cannot delete account that does not belong to him/her.
+[x] User sees form with existing information.
+[x] Upon deleting account, user sees message saying account succesfully deleted.
+[x] User tries to login with prior credentials and is told account no longer exists.
 
 ) do
 
@@ -34,6 +32,7 @@ Acceptance Criteria
 
       click_on "Cancel my account"
 
+      expect(page).to have_content "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       expect(page).to have_content "Sign In"
 
       click_on "Sign In"
