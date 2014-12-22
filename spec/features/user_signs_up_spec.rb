@@ -10,7 +10,7 @@ Acceptance Criteria
 [x] There is a link to 'Sign Up' on the homepage.
 [x] If I fill in my first name, last name, email, password, and password confirmation, I am greeted with a confirmation message that my account has been created.
 [x] If the password and password confirmation fields do not match, I am given an error message.
-[ ] If my email already exists in the database, I am given a message that tells me I have already resgistered.
+[x] If my email already exists in the database, I am given a message that tells me I have already resgistered.
 [ ] If my email is not formatted correctly, I am given an error message.
 
 ) do
@@ -63,6 +63,20 @@ Acceptance Criteria
       click_button "Sign Up"
 
       expect(page).to have_content "This email address has already been registered."
+
+    end
+
+    scenario 'Email not formatted correctly' do
+      visit root_path
+      click_on "Sign Up"
+      fill_in "First name", with: "Beadie"
+      fill_in "Last name", with: "Russell"
+      fill_in "Email", with: "beatrice.russell.com"
+      fill_in "Password", with: "beadiemcnulty"
+      fill_in "Password confirmation", with: "beadiemcnulty"
+      click_button "Sign Up"
+
+      expect(page).to have_content "Email is invalid"
 
     end
 
