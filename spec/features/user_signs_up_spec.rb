@@ -15,19 +15,39 @@ Acceptance Criteria
 
 ) do
 
-  scenario "user provides valid information" do
-    visit root_path
-    click_on "Sign Up"
-    fill_in "First name", with: "Avon"
-    fill_in "Last name", with: "Barksdale"
-    fill_in "Email", with: "avon.barksdale@thewire.com"
-    fill_in "Password", with: "westside4life"
-    fill_in "Password confirmation", with: "westside4life"
-    click_button "Sign Up"
+  context 'Perfect sign up process' do
 
-    expect(page).to have_content "Your account has been succesfully created."
-    expect(page).to_not have_link "Sign Up"
-    expect(page).to have_link "Sign Out"
+    scenario "user provides valid information" do
+      visit root_path
+      click_on "Sign Up"
+      fill_in "First name", with: "Avon"
+      fill_in "Last name", with: "Barksdale"
+      fill_in "Email", with: "avon.barksdale@thewire.com"
+      fill_in "Password", with: "westside4life"
+      fill_in "Password confirmation", with: "westside4life"
+      click_button "Sign Up"
+
+      expect(page).to have_content "Your account has been succesfully created."
+      expect(page).to_not have_link "Sign Up"
+      expect(page).to have_link "Sign Out"
+    end
+
+  end
+
+  context 'Problems when signing in' do
+
+    scenario 'password and password confirmation do not match' do
+      visit root_path
+      click_on "Sign Up"
+      fill_in "First name", with: "Jimmy"
+      fill_in "Last name", with: "McNulty"
+      fill_in "Email", with: "jimmy.mcnulty@thewire.com"
+      fill_in "Password", with: "itaintmyturn"
+      fill_in "Password confirmation", with: "itaintyourturn"
+      click_button "Sign Up"
+
+      expect(page).to have_content "Password confirmation doesn't match Password"
+    end
 
   end
 
