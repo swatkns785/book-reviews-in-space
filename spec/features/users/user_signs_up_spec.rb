@@ -10,8 +10,8 @@ Acceptance Criteria
 [x] There is a link to 'Sign Up' on the homepage.
 [x] If I fill in my first name, last name, email, password, and password confirmation, I am greeted with a confirmation message that my account has been created.
 [x] If the password and password confirmation fields do not match, I am given an error message.
-[x] If my email already exists in the database, I am given a message that tells me I have already resgistered.
-[ ] If my email is not formatted correctly, I am given an error message.
+[x] If my email already exists in the database, I am given a message that tells me I have already registered.
+[x] If my email is not formatted correctly, I am given an error message.
 
 ) do
 

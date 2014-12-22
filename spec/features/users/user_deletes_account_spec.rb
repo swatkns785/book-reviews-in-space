@@ -1,0 +1,50 @@
+require 'rails_helper'
+
+feature "authenticated user deletes account", %q(
+
+As an authenticated user
+I want to delete my account
+So that my information is no longer retained by the app
+
+Acceptance Criteria
+[ ] User sees form with existing information.
+[ ] User clicks "delete" and is automatically signed out.
+[ ] Upon deleting account, user sees message saying account succesfully deleted.
+[ ] User tries to login with prior credentials and is told account no longer exists.
+[ ] User cannot delete account that does not belong to him/her.
+
+) do
+
+  context "user sucessfully deletes account" do
+
+    scenario "user successfully deletes account" do
+      dummy_user = User.create(first_name: "Marlo", last_name: "Stanfield", email: "marlo.stanfield@packages.com", password: "mynameismyname")
+
+      visit root_path
+      click_on "Sign In"
+      fill_in "Email", with: dummy_user.email
+      fill_in "Password", with: dummy_user.password
+      click_button "Log in"
+
+      expect(page).to have_content "Edit Account"
+
+      click_link "Edit Account"
+
+      expect(page).to have_selector("input[value='marlo.stanfield@packages.com']")
+
+      click_on "Cancel my account"
+
+      expect(page).to have_content "Sign In"
+
+      click_on "Sign In"
+
+      fill_in "Email", with: dummy_user.email
+      fill_in "Password", with: dummy_user.password
+      click_button "Log in"
+
+      expect(page).to have_content "Invalid email or password."
+    end
+
+  end
+
+end
