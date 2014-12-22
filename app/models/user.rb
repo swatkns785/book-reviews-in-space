@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
          presence: true
 
          validates :email,
-         presence: true
+         presence: true,
+         uniqueness: { message: "This email address has already been registered." }
 
          validates :password,
          presence: true

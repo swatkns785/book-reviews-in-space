@@ -9,7 +9,7 @@ So that I can post books and review them
 Acceptance Criteria
 [x] There is a link to 'Sign Up' on the homepage.
 [x] If I fill in my first name, last name, email, password, and password confirmation, I am greeted with a confirmation message that my account has been created.
-[ ] If the password and password confirmation fields do not match, I am given an error message.
+[x] If the password and password confirmation fields do not match, I am given an error message.
 [ ] If my email already exists in the database, I am given a message that tells me I have already resgistered.
 [ ] If my email is not formatted correctly, I am given an error message.
 
@@ -47,6 +47,23 @@ Acceptance Criteria
       click_button "Sign Up"
 
       expect(page).to have_content "Password confirmation doesn't match Password"
+    end
+
+    scenario 'User already exists in database' do
+
+      existing_user = User.create(first_name: "Bunk", last_name: "Moreland", email: "daaabuuuuunk@bpd.com", password: "suitsandties")
+
+      visit root_path
+      click_on "Sign Up"
+      fill_in "First name", with: existing_user.first_name
+      fill_in "Last name", with: existing_user.last_name
+      fill_in "Email", with: existing_user.email
+      fill_in "Password", with: existing_user.password
+      fill_in "Password confirmation", with: existing_user.password
+      click_button "Sign Up"
+
+      expect(page).to have_content "This email address has already been registered."
+
     end
 
   end
