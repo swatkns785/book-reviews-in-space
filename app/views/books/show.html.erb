@@ -3,4 +3,6 @@
 <p>Description: <%= @book.description %></p>
 <p>URL: <%= link_to @book.url %></p>
 
-<%= link_to "Back to homepage", root_path %>
+<p><%= link_to "Add a review", new_book_review_path(@book) %></p>
+<div>&nbsp;</div>
+<p><%= link_to "Back to homepage", root_path %></p>
