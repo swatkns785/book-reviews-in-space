@@ -1,0 +1,25 @@
+<%= form_for @book do |f| %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :author %>
+    <%= f.text_field :author %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :url, "URL" %>
+    <%= f.url_field :url %>
+  </div>
+
+  <%= f.submit "Submit" %>
+
+<% end %>
