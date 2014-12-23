@@ -5,4 +5,13 @@
 
 <p><%= link_to "Add a review", new_book_review_path(@book) %></p>
 <div>&nbsp;</div>
+
+<h3>Check out some reviews for <%= @book.title %> below.</h3>
+
+<% @reviews.each do |review| %>
+  <p>Reviewed by: <%= "#{review.user.first_name} #{review.user.last_name}, a #{review.user.role}." %></p>
+  <p><%= review.description %></p>
+  <hr/>
+<% end %>
+
 <p><%= link_to "Back to homepage", root_path %></p>

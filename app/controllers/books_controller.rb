@@ -6,6 +6,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @reviews = Review.order('created_at DESC').where book_id: params[:id]
   end
 
   def new
