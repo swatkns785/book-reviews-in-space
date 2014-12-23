@@ -15,7 +15,18 @@ Acceptance Criteria
 
 ) do
 
-  context "user successfully posts link to a book", focus: true do
+  def create_user_and_sign_in
+    user = FactoryGirl.create(:user)
+
+    visit root_path
+    click_on "Sign In"
+
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_button "Log in"
+  end
+
+  context "user successfully posts link to a book" do
 
     scenario "post link to book on page" do
       user = FactoryGirl.create(:user)
@@ -41,6 +52,30 @@ Acceptance Criteria
 
       expect(page).to have_content "Your book has been succesfully added."
       expect(page).to have_content "Of Mice and Men"
+
+    end
+
+  end
+
+  context 'user makes mistakes when posting book' do
+
+    scenario "User leaves title field blank (less than 1 character)" do
+      create_user_and_sign_in
+
+      expect(page).to have_content "Signed in successfully."
+      expect(page).to have_content "Post a Book"
+
+      click_link "Post a Book"
+
+      fill_in "Title", with: ""
+      fill_in "Author", with: "John Steinbeck"
+      fill_in "Description", with: "A book about mice and men."
+      fill_in "URL", with: "http://www.sparknotes.com/lit/micemen/"
+
+      click_button "Submit"
+
+      expect(page).to have_content "Fill out the forms below to add book to your collection."
+      expect(page).to have_content "Title can't be blank"
 
     end
 
