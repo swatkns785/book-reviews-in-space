@@ -33,7 +33,7 @@ Acceptance Criteria
   end
 
 
-  scenario "a user views all of the books on the homepage, meeting all acceptance criteria", focus: true do
+  scenario "a user views all of the books on the homepage, meeting all acceptance criteria" do
 
     create_user_and_sign_in_and_click_post_a_book
 

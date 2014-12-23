@@ -1,10 +1,10 @@
 <h1>All of the books</h1>
 
 <% @books.each do |b| %>
-<div class="title"><%= b.title %></div>
+<div class="title"><%= link_to b.title, book_path(b.id) %></div>
 <p>By: <%= b.author %></p>
 <p><%= b.description %></p>
 <p><%= link_to b.url %></p>
-<p><%= b.user.role %></p>
+<p>Role: <%= b.user.role %></p>
 <hr/>
 <% end %>
