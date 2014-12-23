@@ -1,4 +1,9 @@
+<h1>All of the books</h1>
+
 <% @books.each do |b| %>
 <div class="title"><%= b.title %></div>
+<p>By: <%= b.author %></p>
+<p><%= b.description %></p>
+<p><%= link_to b.url %></p>
 <hr/>
 <% end %>

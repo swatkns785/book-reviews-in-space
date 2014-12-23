@@ -1,6 +1,8 @@
 FactoryGirl.define do
   factory :book do
-    title "Of Mice and Men"
+    sequence :title do |n|
+      "Of Mice and Men #{n}"
+    end
     author "John Steinbeck"
     description "A book about mice and men."
     url "http://www.sparknotes.com/lit/micemen/"

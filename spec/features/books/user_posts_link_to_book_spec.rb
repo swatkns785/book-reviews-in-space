@@ -10,8 +10,8 @@ Acceptance Criteria
 
 [x] I must provide a title that is at least 1 character long
 [x] I must provide a description that is at least 10 characters long
-[ ] I must provide a valid URL to the book
-[ ] I must be presented with errors if I fill out the form incorrectly
+[x] I must provide a valid URL to the book
+[x] I must be presented with errors if I fill out the form incorrectly
 
 ) do
 
