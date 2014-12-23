@@ -96,6 +96,22 @@ Acceptance Criteria
 
     end
 
+    scenario "User provides invalid URL" do
+
+      create_user_and_sign_in_and_click_post_a_book
+
+      fill_in "Title", with: "Of mice and men"
+      fill_in "Author", with: "John Steinbeck"
+      fill_in "Description", with: "A book about mice and men."
+      fill_in "URL", with: "invalidurl"
+
+      click_button "Submit"
+
+      expect(page).to have_content "Fill out the forms below to add book to your collection."
+      expect(page).to have_content "Url is invalid"
+
+    end
+
   end
 
 end

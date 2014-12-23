@@ -10,6 +10,7 @@ class Book < ActiveRecord::Base
   length: { minimum: 10 }
 
   validates :url,
-  presence: true
+  presence: true,
+  format: { with: URI.regexp }
 
 end
