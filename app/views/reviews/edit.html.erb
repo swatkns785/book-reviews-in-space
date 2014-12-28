@@ -1,0 +1,12 @@
+<h2>Edit your review below.</h2>
+
+<%= form_for [@book, @review] do |f| %>
+
+<div>
+  <%= f.label :description, "Description:" %>
+  <%= f.text_area :description %>
+</div>
+
+<%= f.submit "Update Review", method: :post %>
+
+<% end %>

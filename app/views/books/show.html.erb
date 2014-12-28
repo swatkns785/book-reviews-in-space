@@ -6,11 +6,26 @@
 <p><%= link_to "Add a review", new_book_review_path(@book) %></p>
 <div>&nbsp;</div>
 
+<h3>Fill out the form below to leave a review</h3>
+
+<%= form_for [@book, @review] do |f| %>
+
+<div>
+  <%= f.label :description, "Description:" %>
+  <%= f.text_area :description %>
+</div>
+
+<%= f.submit "Submit Review", method: :post %>
+
+<% end %>
+
+
 <h3>Check out some reviews for <%= @book.title %> below.</h3>
 
 <% @reviews.each do |review| %>
   <p>Reviewed by: <%= "#{review.user.first_name} #{review.user.last_name}, a #{review.user.role}." %></p>
   <p><%= review.description %></p>
+  <p><%= link_to "Edit Review", edit_book_review_path(review.book_id, review.id) %>
   <hr/>
 <% end %>
 

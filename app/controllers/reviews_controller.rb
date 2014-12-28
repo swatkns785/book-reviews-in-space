@@ -1,10 +1,5 @@
 class ReviewsController < ApplicationController
 
-  def new
-    @review = Review.new
-    @book = Book.find(params[:book_id])
-  end
-
   def create
 
     @book_id = params[:book_id]
@@ -17,7 +12,25 @@ class ReviewsController < ApplicationController
       redirect_to book_path(@book.id)
       flash[:notice] = "Review successfully submitted."
     else
-      render :new
+      redirect_to book_path(@book.id)
+    end
+  end
+
+  def edit
+    @book = Book.find(params[:book_id])
+    @review = Review.find(params[:id])
+  end
+
+  def update
+    @book = Book.find(params[:book_id])
+    @review = Review.find(params[:id])
+
+    if @review.update_attributes(review_params)
+      redirect_to book_path(@book.id)
+      flash[:notice] = "Your review has been successfully updated."
+    else
+      redirect_to edit_book_review_path(@book, @review)
+      flash[:notice] = "Minimum of 50 words is required."
     end
   end
 
