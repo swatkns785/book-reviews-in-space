@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Your review has been successfully updated."
     else
       redirect_to edit_book_review_path(@book, @review)
-      flash[:notice] = "Minimum of 50 words is required."
+      flash[:notice] = "Minimum of 50 characters required."
     end
   end
 
