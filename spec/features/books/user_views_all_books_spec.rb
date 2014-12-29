@@ -46,8 +46,8 @@ Acceptance Criteria
     second_book_location = page.body.index(second_book.title)
 
     expect(page).to have_content "All of the books"
-    expect(page).to have_content "Of Mice and Men 1"
-    expect(page).to have_content "Of Mice and Men 2"
+    expect(page).to have_content first_book.title
+    expect(page).to have_content second_book.title
     expect(page).to have_content "John Steinbeck"
     expect(page).to have_content "A book about mice and men."
     expect(page).to have_content "Candidate"

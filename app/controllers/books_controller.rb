@@ -19,7 +19,7 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
     if @book.save
       redirect_to root_path
-       flash[:notice] = "Your book has been succesfully added."
+       flash[:notice] = "Your book has been successfully added."
     else
       render :new
     end
@@ -37,7 +37,7 @@ class BooksController < ApplicationController
 
     flash[:notice] = "Your book has been successfully been destroyed."
     redirect_to root_path
-    
+
   end
 
   private

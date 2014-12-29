@@ -46,9 +46,6 @@ Acceptance Criteria
 
       click_link book.title
 
-      expect(page).to have_link "Add a review"
-      click_link "Add a review"
-
       expect(page).to have_content "Fill out the form below to leave a review"
 
       fill_in "Description:", with: "A book about men and mice playing dice it's niiice."
@@ -72,15 +69,12 @@ Acceptance Criteria
 
        click_link book.title
 
-       expect(page).to have_link "Add a review"
-       click_link "Add a review"
-
        expect(page).to have_content "Fill out the form below to leave a review"
 
        fill_in "Description:", with: "This description is too short"
        click_button "Submit Review"
 
-       expect(page).to have_content "This description is too short"
+       expect(page).to have_content "This description is too short. 50 character minimum."
 
      end
 

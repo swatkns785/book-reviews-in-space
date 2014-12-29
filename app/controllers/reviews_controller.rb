@@ -9,11 +9,13 @@ class ReviewsController < ApplicationController
     @review.book_id = @book_id
 
     if @review.save
-      redirect_to book_path(@book.id)
+      redirect_to book_path(@book)
       flash[:notice] = "Review successfully submitted."
     else
-      redirect_to book_path(@book.id)
+      redirect_to book_path(@book)
+      flash[:notice] = "This description is too short. 50 character minimum."
     end
+
   end
 
   def edit
@@ -26,7 +28,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
 
     if @review.update_attributes(review_params)
-      redirect_to book_path(@book.id)
+      redirect_to book_path(@book)
       flash[:notice] = "Your review has been successfully updated."
     else
       redirect_to edit_book_review_path(@book, @review)

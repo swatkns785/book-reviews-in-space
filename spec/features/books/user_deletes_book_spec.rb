@@ -8,8 +8,8 @@ So that I can delete a book I posted for any reason
 
 Acceptance Criteria
 
-[ ] I must be able delete a book from the book details page
-[ ] All reviews associated with the book must also be deleted
+[x] I must be able delete a book from the book details page
+[x] All reviews associated with the book must also be deleted
 
 ) do
 

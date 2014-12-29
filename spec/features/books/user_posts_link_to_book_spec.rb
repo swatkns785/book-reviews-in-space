@@ -55,7 +55,7 @@ Acceptance Criteria
 
       click_button "Submit"
 
-      expect(page).to have_content "Your book has been succesfully added."
+      expect(page).to have_content "Your book has been successfully added."
       expect(page).to have_content "Of Mice and Men"
 
     end
