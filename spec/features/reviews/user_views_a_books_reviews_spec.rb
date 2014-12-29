@@ -8,10 +8,10 @@ So that I can see what people are saying about it
 
 Acceptance Criteria
 
-[ ] I must be on the book detail page
-[ ] I must only see reviews to books I'm viewing
-[ ] I must see all reviews listed in order, most recent first
-[ ] I must see if the writer of the review is a candidate or an astronaut
+[x] I must be on the book detail page
+[x] I must only see reviews to books I'm viewing
+[x] I must see all reviews listed in order, most recent first
+[x] I must see if the writer of the review is a candidate or an astronaut
 
 ) do
 
