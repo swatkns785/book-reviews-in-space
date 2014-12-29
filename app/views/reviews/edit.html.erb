@@ -10,3 +10,5 @@
 <%= f.submit "Update Review", method: :post %>
 
 <% end %>
+
+<%= button_to "Delete this review", book_review_path(@book, @review), method: :delete %>
