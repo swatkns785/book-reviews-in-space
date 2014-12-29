@@ -8,8 +8,8 @@ So that I can delete my review if I no longer want to show it
 
 Acceptance Criteria
 
-[ ] I must be able delete a review from the review edit page
-[ ] I must be able delete a review from the review details page
+[x] I must be able delete a review from the review edit page
+[x] I must be able delete a review from the review details page
 
 ) do
 
